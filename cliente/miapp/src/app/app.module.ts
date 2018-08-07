@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ListaLibrosComponent } from './lista-libros/lista-libros.component';
 import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from "@angular/forms";
 import { RouterModule, Routes } from '@angular/router';
+import { FormularioLibrosComponent } from './formulario-libros/formulario-libros.component';
 
 
 const rutas: Routes = [
@@ -15,16 +17,21 @@ const rutas: Routes = [
       path: "listado",
       component: ListaLibrosComponent
     },
+    {
+      path: "formulario",
+      component: FormularioLibrosComponent
+    }
   ]},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaLibrosComponent
+    ListaLibrosComponent,
+    FormularioLibrosComponent
   ],
   imports: [
-    BrowserModule,HttpClientModule,RouterModule.forRoot(
+    BrowserModule,HttpClientModule,FormsModule,RouterModule.forRoot(
       rutas,
       { enableTracing: true } // <-- tareas de debug
     )
